@@ -1,4 +1,0 @@
-ChandMalang
-===========
-
-Chand Malang

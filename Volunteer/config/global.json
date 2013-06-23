@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Volunteer": {
+            "applicationId": "<GIT_APP_ID>", 
+            "masterKey": "<GIT_MASTER_KEY>"
+        }, 
+        "_default": {
+            "link": "Volunteer"
+        }
+    }
+}
