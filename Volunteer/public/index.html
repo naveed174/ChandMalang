@@ -14,8 +14,8 @@
 	//////////////////////////////////////////////////////////////
   window.fbAsyncInit = function() {
   FB.init({
-	appId      : '476791355736783', // Facebook App ID
-	channelUrl : '//volunteerv2.parseapp.com/channel.html', // Channel File	
+	appId      : '<GIT_FACEBOOK_APP_ID>', // Facebook App ID
+	channelUrl : '//<GIT_APP_URL>/channel.html', // Channel File	
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
@@ -50,8 +50,7 @@
 			//LoginFBUserInParse();
 			
 			console.log("user already connected and must have authorized the app");
-
-
+			RedirectToHomePage();
 		} 
 		else if (response.status === 'not_authorized') 
 		{
@@ -97,7 +96,8 @@
 					}
 					
 					console.log('redirecting');
-					window.location.href = "http://volunteerv2.parseapp.com/home.html";
+					
+					RedirecToHomePage();					
 				  },
 				  error: function(user, error) {
 					console.log("User cancelled the Facebook login or did not fully authorize. error:" + error.message);
@@ -112,6 +112,12 @@
 	}, {scope: 'create_event,rsvp_event,user_about_me,user_events,user_hometown,user_location'});
   };
   
+  // Redirect to Home Page
+  //
+  function RedirectToHomePage()
+  {
+	window.location.href = "http://<GIT_APP_URL>/home.html";
+  }
   
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
