@@ -31,6 +31,12 @@
    ref.parentNode.insertBefore(js, ref);
   }(document));
 
+  // Redirect to Home Page
+  //
+  function RedirectToHomePage()
+  {
+	window.location.href = "http://<GIT_APP_URL>/home.html";
+  }
   
   // Main method to login via facebook and set the user up in Parse
   //
@@ -111,13 +117,6 @@
 		}
 	}, {scope: 'create_event,rsvp_event,user_about_me,user_events,user_hometown,user_location'});
   };
-  
-  // Redirect to Home Page
-  //
-  function RedirectToHomePage()
-  {
-	window.location.href = "http://<GIT_APP_URL>/home.html";
-  }
   
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 

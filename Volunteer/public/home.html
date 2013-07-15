@@ -35,7 +35,10 @@
 			
 			FB.api('/me?fields=location,name', function(response)
 			{
+				//console.log(response)
+							
 				console.log('Name: ' + response.name);
+				console.log('Location: ' + response.location.name);
 			});
 		}
 
