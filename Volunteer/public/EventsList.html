@@ -28,32 +28,35 @@
 	  }(document));
 
 		//-- Get 
-		function GetUserInfoFromFB()
+		function GetUserEventsFromFB()
 		{
 			var curUser = Parse.User.current();
 			console.log("Authenticated: " + curUser.authenticated());
 			
-			FB.api('/me?fields=location,name', function(response)
+			FB.api('/me?fields=events', function(response)
 			{
-				//console.log(response)
-							
-				console.log('Name: ' + response.name);
-				console.log('Location: ' + response.location.name);
+				var events = response.events.data;
+				
+				var finalHtml = "";
+				for(var i = 0; i < events.length; i++) {
+					var nameHtml = "<strong>Event : </strong> " + events[i].name;
+					var locationHtml = "<strong>Location : </strong> " + events[i].location;
+					finalHtml += nameHtml + "<br>" + locationHtml + "<br><br>";
+				}
+				
+				var eventsSection = document.getElementById("eventsSection");
+				eventsSection.innerHTML = finalHtml;				
 			});
 		}
-		
-		  // Redirect to Home Page
-  //
-  function RedirectToUserList()
-  {
-	window.location.href = "http://<GIT_APP_URL>/EventsList.html";
-  }
 
 </script>
 
 Welcome to Volunteers App <br/>
-<button  onclick="GetUserInfoFromFB();">Get Info from Facebook</button>
+<button  onclick="GetUserEventsFromFB();">Get User Events from Facebook</button>
 
-<button  onclick="RedirectToUserList();">Get User Events</button>
+<p id="eventsSection">
+	The list should appear here
+	<br>
+</p>
 </body>
 </html>
