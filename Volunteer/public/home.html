@@ -6,6 +6,13 @@
 <div id="fb-root"></div>
 <script>
 
+	  // Redirect to Home Page
+	  //
+	  function RedirectToUserList()
+	  {
+		window.location.href = "http://<GIT_APP_URL>/EventsList.html";
+	  }
+	  
 	Parse.initialize("<GIT_APP_ID>", "<GIT_JAVASCRIPT_KEY>");	
 	
 	  window.fbAsyncInit = function() {
@@ -41,19 +48,11 @@
 				console.log('Location: ' + response.location.name);
 			});
 		}
-		
-		  // Redirect to Home Page
-  //
-  function RedirectToUserList()
-  {
-	window.location.href = "http://<GIT_APP_URL>/EventsList.html";
-  }
 
 </script>
 
 Welcome to Volunteers App <br/>
 <button  onclick="GetUserInfoFromFB();">Get Info from Facebook</button>
-
 <button  onclick="RedirectToUserList();">Get User Events</button>
 </body>
 </html>
